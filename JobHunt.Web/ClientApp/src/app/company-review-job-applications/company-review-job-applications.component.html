@@ -1,0 +1,22 @@
+<div *ngIf="jobApplications && jobApplications.length > 0">
+    <div *ngFor="let jobApplication of jobApplications" style="border: 1px black solid; margin-top: 10px;">
+        <h3>{{ jobApplication.jobTitle }} - 
+            <span [ngClass]="getJobApplicationStatusLabel(jobApplication.status)">{{ printJobApplicationStatus(jobApplication.status) }}</span>
+        </h3>
+        
+        <h5>{{ jobApplication.userFullName }}</h5>
+        
+        <div *ngIf="jobApplication.user != null">
+            <p>{{ jobApplication.user?.bio }}</p>
+            <p>Contact: {{ jobApplication.user?.email }}</p>
+        </div>
+
+        <div *ngIf="jobApplication.status == 1">
+            <button (click)="approveJobApplication(jobApplication.id)">Approve</button>
+            <button (click)="declineJobApplication(jobApplication.id)">Decline</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!jobApplications || jobApplications.length == 0">
+    <h3 style="color: red">You have no pending job applications.</h3>
+</div>

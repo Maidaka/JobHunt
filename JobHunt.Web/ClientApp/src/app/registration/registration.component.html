@@ -1,0 +1,65 @@
+<div>
+    <span>User <input type="radio" name="logintype" [value]="1" [(ngModel)]="logintype" /></span>
+    <span>Company<input type="radio" name="logintype" [value]="2" [(ngModel)]="logintype" /></span>
+</div>
+
+<div *ngIf="logintype == 1">
+    <div>
+        <h3>First Name:</h3> 
+        <input type="text" [(ngModel)]="user.firstName" />
+    </div>
+
+    <div>
+        <h3>Last Name:</h3> 
+        <input type="text" [(ngModel)]="user.lastName" />
+    </div>
+
+    <div>
+        <h3>Username:</h3> 
+        <input type="text" [(ngModel)]="user.username" />
+    </div>
+    
+    <div>
+        <h3>Password:</h3> 
+        <input type="password" [(ngModel)]="user.password" />
+    </div>
+    
+    <div>
+        <h3>Email Address:</h3> 
+        <input type="text" [(ngModel)]="user.email" />
+    </div>
+
+    <div>
+        <h3>Bio:</h3> 
+        <textarea [(ngModel)]="user.bio"></textarea>
+    </div>
+</div>
+
+<div *ngIf="logintype == 2">
+    <div>
+        <h3>Company Name:</h3> 
+        <input type="text" [(ngModel)]="company.name" />
+    </div>
+
+    <div>
+        <h3>Username:</h3> 
+        <input type="text" [(ngModel)]="company.username" />
+    </div>
+    
+    <div>
+        <h3>Password:</h3> 
+        <input type="password" [(ngModel)]="company.password" />
+    </div>
+    
+    <div>
+        <h3>Description:</h3> 
+        <textarea [(ngModel)]="company.description"></textarea>
+    </div>
+</div>
+
+<div>
+    <button (click)="register()">Register</button>
+    <h3 style="color: green;cursor: pointer" 
+        *ngIf="registrationSuccesful == true"
+        (click)="goToLogin()">You've been successfully registered. Click here to go back to login page.</h3>
+</div>

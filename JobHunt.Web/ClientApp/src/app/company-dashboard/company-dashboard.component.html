@@ -1,0 +1,14 @@
+<div *ngIf="companyJobs && companyJobs.length > 0">
+    <div *ngFor="let job of companyJobs" style="border: 1px black solid; margin-top: 10px;">
+        <h3>{{ job.title }} - <span style="color: red">{{ printJobStatus(job.status) }}</span></h3>
+        <p>{{ job.description }}</p>
+        <h5>Number of Applications: {{ job.numberOfJobApplications }}</h5>
+        <h5>Posted at {{ job.createdAt | date:'medium' }}</h5>
+
+        <button *ngIf="job.status == 1" (click)="closeJob(job.id)">Close Job</button>
+    </div>
+</div>
+
+<div *ngIf="!companyJobs || companyJobs.length == 0">
+    <h3 style="color: red">You have no posted jobs.</h3>
+</div>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JobHunt.Service.Company.Models\JobHunt.Service.Company.Models.csproj" />
+    <ProjectReference Include="..\JobHunt.Service.Job.Models\JobHunt.Service.Job.Models.csproj" />
+    <ProjectReference Include="..\JobHunt.Service.User.Models\JobHunt.Service.User.Models.csproj" />
+  </ItemGroup>
+
+
+</Project>

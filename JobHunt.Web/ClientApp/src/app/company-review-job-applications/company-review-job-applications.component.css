@@ -1,0 +1,11 @@
+.approved-label {
+    color: green;
+}
+
+.declined-label {
+    color: red;
+}
+
+.submitted-label {
+    color: blue;
+}

@@ -1,0 +1,18 @@
+<div>Search: 
+    <input type="text" [(ngModel)]="searchKeywords" (ngModelChange)="onSearchKeywordsChange($event)"/>
+</div>
+
+<div *ngIf="filteredCompanyJobs && filteredCompanyJobs.length > 0">
+    <div *ngFor="let job of filteredCompanyJobs" style="border: 1px black solid; margin-top: 10px;">
+        <h3>{{ job.title }} ({{job.companyName}}) <span *ngIf="job.hasUserApplied" style="color: blue"> - Applied</span></h3>
+        <p>{{ job.description }}</p>
+        <h5>Number of Applications: {{ job.numberOfJobApplications }}</h5>
+        <h5>Posted at {{ job.createdAt | date:'medium' }}</h5>
+
+        <button *ngIf="job.status == 1 && !job.hasUserApplied" (click)="submitJobApplication(job.id)">Submit Application</button>
+    </div>
+</div>
+
+<div *ngIf="!filteredCompanyJobs || filteredCompanyJobs.length == 0">
+    <h3 style="color: red">No jobs have been found by the search criteria.</h3>
+</div>

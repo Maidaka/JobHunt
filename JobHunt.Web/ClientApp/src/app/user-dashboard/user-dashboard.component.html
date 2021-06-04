@@ -1,0 +1,12 @@
+<div *ngIf="jobApplications && jobApplications.length > 0">
+    <div *ngFor="let jobApplication of jobApplications" style="border: 1px black solid; margin-top: 10px;">
+        <h3>{{ jobApplication.jobTitle }} ({{jobApplication.companyName}})- 
+            <span [ngClass]="getJobApplicationStatusLabel(jobApplication.status)">{{ printJobApplicationStatus(jobApplication.status) }}</span>
+        </h3>
+        
+        <p>{{ jobApplication.jobDescription }}</p>        
+    </div>
+</div>
+<div *ngIf="!jobApplications || jobApplications.length == 0">
+    <h3 style="color: red">You have no submitted job applications.</h3>
+</div>
